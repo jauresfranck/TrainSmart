@@ -10,11 +10,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.trainsmart.R
 import com.example.trainsmart.databinding.FragmentLoginBinding
 import com.example.trainsmart.ui.dashboard.MainActivity
+import com.example.trainsmart.utils.AuthManager
 
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
+    private lateinit var authManager: AuthManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,6 +24,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        authManager = AuthManager(requireContext())
         return binding.root
     }
 
@@ -32,17 +35,36 @@ class LoginFragment : Fragment() {
             val email = binding.etEmail.text.toString().trim()
             val password = binding.etPassword.text.toString().trim()
 
+            // Reset erreurs
+            binding.tilEmail.error = null
+            binding.tilPassword.error = null
+
+            // Validations
             if (email.isEmpty()) {
                 binding.tilEmail.error = "Veuillez entrer votre e-mail"
+                return@setOnClickListener
+            }
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                binding.tilEmail.error = "E-mail invalide"
                 return@setOnClickListener
             }
             if (password.isEmpty()) {
                 binding.tilPassword.error = "Veuillez entrer votre mot de passe"
                 return@setOnClickListener
             }
+            if (password.length < 6) {
+                binding.tilPassword.error = "Mot de passe trop court (6 caractères min.)"
+                return@setOnClickListener
+            }
 
-            startActivity(Intent(requireContext(), MainActivity::class.java))
-            requireActivity().finish()
+            // Tentative de connexion
+            if (authManager.login(email, password)) {
+                startActivity(Intent(requireContext(), MainActivity::class.java))
+                requireActivity().finish()
+            } else {
+                binding.tilEmail.error = "E-mail ou mot de passe incorrect"
+                binding.tilPassword.error = " "
+            }
         }
 
         binding.tvGoRegister.setOnClickListener {
