@@ -7,6 +7,6 @@ import com.example.trainsmart.R
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash) // temporaire
+        setContentView(R.layout.activity_main)
     }
 }

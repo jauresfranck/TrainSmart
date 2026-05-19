@@ -15,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Bouton Commencer → onboarding (pour l'instant on va direct au dashboard)
+        // Bouton Commencer → Dashboard
         binding.btnCommencer.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
