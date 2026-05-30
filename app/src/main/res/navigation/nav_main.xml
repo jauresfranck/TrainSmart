@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.trainsmart.ui.dashboard.DashboardFragment"
+        android:label="Accueil" />
+
+    <fragment
+        android:id="@+id/seanceFragment"
+        android:name="com.example.trainsmart.ui.seance.SeanceFragment"
+        android:label="Séance" />
+
+    <fragment
+        android:id="@+id/jaugeFragment"
+        android:name="com.example.trainsmart.ui.dashboard.JaugeFragment"
+        android:label="Jauge" />
+
+    <fragment
+        android:id="@+id/bilanFragment"
+        android:name="com.example.trainsmart.ui.bilan.BilanFragment"
+        android:label="Bilan" />
+
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.example.trainsmart.ui.profil.ProfilFragment"
+        android:label="Profil" />
+
+</navigation>

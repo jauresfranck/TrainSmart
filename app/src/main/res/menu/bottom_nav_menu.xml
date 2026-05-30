@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/dashboardFragment"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Accueil" />
+
+    <item
+        android:id="@+id/seanceFragment"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="Séance" />
+
+    <item
+        android:id="@+id/jaugeFragment"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Jauge" />
+
+    <item
+        android:id="@+id/bilanFragment"
+        android:icon="@android:drawable/ic_menu_report_image"
+        android:title="Bilan" />
+
+    <item
+        android:id="@+id/profilFragment"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Profil" />
+
+</menu>
