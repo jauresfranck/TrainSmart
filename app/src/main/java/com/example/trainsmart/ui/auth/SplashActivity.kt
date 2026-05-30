@@ -19,22 +19,21 @@ class SplashActivity : AppCompatActivity() {
 
         authManager = AuthManager(this)
 
-        // Si déjà connecté → Dashboard direct
         if (authManager.isLoggedIn()) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
             return
         }
 
-        // Bouton Commencer → Inscription
         binding.btnCommencer.setOnClickListener {
             startActivity(Intent(this, AuthActivity::class.java))
             finish()
         }
 
-        // Bouton Se connecter → Login
-        binding.btnConnexion.setOnClickListener {
-            startActivity(Intent(this, AuthActivity::class.java))
+        binding.tvSeConnecter.setOnClickListener {
+            val intent = Intent(this, AuthActivity::class.java)
+            intent.putExtra("start_login", true)
+            startActivity(intent)
             finish()
         }
     }

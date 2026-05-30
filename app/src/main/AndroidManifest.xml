@@ -26,6 +26,12 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
+        <!-- Onboarding -->
+        <activity
+            android:name=".ui.onboarding.OnboardingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
         <!-- Main (après connexion) -->
         <activity
             android:name=".ui.dashboard.MainActivity"

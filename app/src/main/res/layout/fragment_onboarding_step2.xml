@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="32dp">
+
+        <!-- Indicateur de progression -->
+        <LinearLayout
+            android:id="@+id/progress_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <View android:layout_width="8dp" android:layout_height="8dp"
+                android:background="@color/green_primary" android:layout_marginEnd="6dp"/>
+            <View android:layout_width="24dp" android:layout_height="8dp"
+                android:background="@color/green_primary" android:layout_marginEnd="6dp"/>
+            <View android:layout_width="8dp" android:layout_height="8dp"
+                android:background="@color/border"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Votre sport"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/progress_dots"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pour adapter les calculs de charge"
+            android:textSize="13sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Sport principal -->
+        <TextView
+            android:id="@+id/tv_sport_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type de sollicitation principale"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layout_sport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_sport_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_musculation"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="Musculation"
+                android:textSize="12sp"
+                app:strokeColor="@color/green_primary"
+                app:strokeWidth="1dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_marginEnd="6dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_course"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="Course"
+                android:textSize="12sp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_marginEnd="6dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_mixte"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="Mixte"
+                android:textSize="12sp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+        </LinearLayout>
+
+        <!-- Niveau -->
+        <TextView
+            android:id="@+id/tv_niveau_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Niveau"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/layout_sport"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layout_niveau"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_niveau_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_debutant"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="Débutant"
+                android:textSize="12sp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_marginEnd="6dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_intermediaire"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="Intermédiaire"
+                android:textSize="11sp"
+                app:strokeColor="@color/green_primary"
+                app:strokeWidth="1dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_marginEnd="6dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_avance"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="Avancé"
+                android:textSize="12sp"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+        </LinearLayout>
+
+        <!-- Bouton Suivant -->
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Suivant →"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/green_primary"
+            android:layout_marginTop="40dp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:layout_constraintTop_toBottomOf="@id/layout_niveau"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

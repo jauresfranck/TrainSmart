@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Couleurs principales TrainSmart -->
     <color name="green_primary">#1D9E75</color>
     <color name="green_dark">#0F6E56</color>
     <color name="green_light">#E1F5EE</color>
     <color name="green_mid">#5DCAA5</color>
-
-    <!-- Jauge -->
     <color name="gauge_green">#639922</color>
     <color name="gauge_orange">#BA7517</color>
     <color name="gauge_red">#E24B4A</color>
-
-    <!-- UI général -->
     <color name="white">#FFFFFF</color>
-    <color name="background">#F3F4F6</color>
+    <color name="background">#F8F9FA</color>
     <color name="surface">#FFFFFF</color>
     <color name="text_primary">#1F2937</color>
     <color name="text_secondary">#6B7280</color>
@@ -21,4 +16,5 @@
     <color name="border">#E5E7EB</color>
     <color name="red_light">#FCEBEB</color>
     <color name="red_primary">#E24B4A</color>
+    <color name="card_bg">#FFFFFF</color>
 </resources>

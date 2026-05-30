@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.trainsmart.R
 import com.example.trainsmart.databinding.FragmentRegisterBinding
-import com.example.trainsmart.ui.dashboard.MainActivity
+import com.example.trainsmart.ui.onboarding.OnboardingActivity
 import com.example.trainsmart.utils.AuthManager
 
 class RegisterFragment : Fragment() {
@@ -71,8 +71,7 @@ class RegisterFragment : Fragment() {
 
             // Tentative d'inscription
             if (authManager.register(prenom, email, password)) {
-                // Inscription réussie → Dashboard
-                startActivity(Intent(requireContext(), MainActivity::class.java))
+                startActivity(Intent(requireContext(), OnboardingActivity::class.java))
                 requireActivity().finish()
             } else {
                 binding.tilEmail.error = "Un compte existe déjà avec cet e-mail"

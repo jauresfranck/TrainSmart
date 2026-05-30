@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="32dp">
+
+        <!-- Indicateur de progression -->
+        <LinearLayout
+            android:id="@+id/progress_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <View android:layout_width="8dp" android:layout_height="8dp"
+                android:background="@color/green_primary" android:layout_marginEnd="6dp"/>
+            <View android:layout_width="8dp" android:layout_height="8dp"
+                android:background="@color/green_primary" android:layout_marginEnd="6dp"/>
+            <View android:layout_width="24dp" android:layout_height="8dp"
+                android:background="@color/green_primary"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Historique médical"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/progress_dots"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pour mieux calibrer vos alertes de risque"
+            android:textSize="13sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Blessure antérieure -->
+        <TextView
+            android:id="@+id/tv_blessure_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Avez-vous déjà eu une blessure liée au sport ?"
+            android:textSize="13sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layout_blessure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_blessure_label"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_oui"
+                android:layout_width="100dp"
+                android:layout_height="44dp"
+                android:text="Oui"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_marginEnd="12dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_non"
+                android:layout_width="100dp"
+                android:layout_height="44dp"
+                android:text="Non"
+                app:strokeColor="@color/green_primary"
+                app:strokeWidth="1dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+        </LinearLayout>
+
+        <!-- Zone de blessure (visible si Oui) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_zone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Zone concernée (ex : genou gauche)"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:boxStrokeColor="@color/green_primary"
+            app:hintTextColor="@color/green_primary"
+            app:layout_constraintTop_toBottomOf="@id/layout_blessure"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_zone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Notes -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_notes"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Notes complémentaires (optionnel)"
+            android:layout_marginTop="16dp"
+            app:boxStrokeColor="@color/green_primary"
+            app:hintTextColor="@color/green_primary"
+            app:layout_constraintTop_toBottomOf="@id/til_zone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minLines="3"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Bouton Terminer -->
+        <Button
+            android:id="@+id/btn_finish"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Terminer et démarrer"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/green_primary"
+            android:layout_marginTop="32dp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:layout_constraintTop_toBottomOf="@id/til_notes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

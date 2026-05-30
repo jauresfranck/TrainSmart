@@ -10,133 +10,142 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="32dp">
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingBottom="48dp">
 
-        <!-- Titre -->
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
             android:text="Bon retour"
+            android:textColor="@color/text_primary"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="@color/text_primary"
-            android:layout_marginTop="48dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connectez-vous à votre compte"
-            android:textSize="14sp"
-            android:textColor="@color/text_secondary"
             android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_title"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="Connectez-vous à votre compte"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
-        <!-- Email -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/TrainSmart.TextInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
             android:hint="Adresse e-mail"
-            android:layout_marginTop="40dp"
-            app:boxStrokeColor="@color/green_primary"
-            app:hintTextColor="@color/green_primary"
-            app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/tv_subtitle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:imeOptions="actionNext" />
-
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Mot de passe -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_password"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/TrainSmart.TextInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
             android:hint="Mot de passe"
-            android:layout_marginTop="16dp"
-            app:boxStrokeColor="@color/green_primary"
-            app:hintTextColor="@color/green_primary"
-            app:passwordToggleEnabled="true"
-            app:layout_constraintTop_toBottomOf="@id/til_email"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/til_email"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:imeOptions="actionDone" />
-
+                android:imeOptions="actionDone"
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Mot de passe oublié -->
         <TextView
             android:id="@+id/tv_forgot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mot de passe oublié ?"
-            android:textSize="13sp"
-            android:textColor="@color/green_primary"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/til_password"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:text="Mot de passe oublié ?"
+            android:textColor="@color/green_primary"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_password" />
 
-        <!-- Bouton Connexion -->
         <Button
             android:id="@+id/btn_login"
+            style="@style/TrainSmart.Button.Primary"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:text="Se connecter"
-            android:textSize="15sp"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/green_primary"
             android:layout_marginTop="24dp"
-            style="@style/Widget.MaterialComponents.Button"
-            app:layout_constraintTop_toBottomOf="@id/tv_forgot"
+            android:text="Se connecter"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tv_forgot" />
 
-        <!-- Lien inscription -->
+        <TextView
+            android:id="@+id/tv_or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="ou"
+            android:textColor="@color/text_hint"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_google"
+            style="@style/TrainSmart.Button.Outline"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:text="Continuer avec Google"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_or" />
+
         <LinearLayout
             android:id="@+id/layout_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@id/btn_login"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/btn_google">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pas de compte ? "
-                android:textSize="13sp"
-                android:textColor="@color/text_secondary" />
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/tv_go_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="S'inscrire"
-                android:textSize="13sp"
                 android:textColor="@color/green_primary"
+                android:textSize="13sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
